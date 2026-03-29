@@ -566,7 +566,7 @@ input, textarea {
     flex: 0 0 calc(100% / 2); 
   }
   .cart-btn {
-      right: 5px;
+      right: -10px;
       padding: 5px;
       top: 32px;
       border: none;
