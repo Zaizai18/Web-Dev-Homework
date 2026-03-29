@@ -21,86 +21,121 @@
 
 <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
 
-<nav>
+<nav style="display:flex;align-items:center;margin:0 auto;">
 <a href="index.html">HOME</a>
 <a href="menu.html">MENU</a>
 <a href="about.html">ABOUT</a>
 <a href="contact.html">CONTACT</a>
 </nav>
+
+<button class="cart-btn" onclick="openCart()"> 
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+  </svg>
+  CART 
+  <span class="cart-count">0</span>
+</button>
 </header>
+
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h2>ORDER SUMMARY</h2>
+    <span onclick="closeCart()" class="close-btn">✖</span>
+  </div>
+
+  <div id="cartItems" class="cart-items">
+    <p class="empty">Your cart is empty</p>
+  </div>
+
+  <div class="cart-footer">
+    <p>Total: $<span id="total">0.00</span></p>
+    <button class="checkout">Proceed to Checkout</button>
+    <button style="background-color: rgba(143, 0, 0, 0.479);" onclick="clearCart()">Clear Cart</button>
+  </div>
+  </div>
+</div>
 
 <h1>Menu</h1>
 
 <div class="card-wrapper">
 <div class="card">
-  <img src="image/chicken over rice platter.png" alt="Avatar">
+  <img src="image/chicken over rice platter.png" alt="Chicken Over Rice Platter">
   <div class="container">
     <h4><b>Chicken Over Rice Platter</b></h4> 
     <p>$10.99</p> 
+    <button class="addbutton" onclick="addToCart('Chicken Over Rice Platter', 10.99)">Add to Cart</button>
   </div>
 </div>
 
 <div class="card">
-  <img src="image/combo platter.png" alt="Avatar">
+  <img src="image/combo platter.png" alt="Mix Combo Over Rice Platter">
   <div class="container">
     <h4><b>Mix Combo Over Rice Platter</b></h4> 
     <p>$10.99</p> 
+    <button class="addbutton" onclick="addToCart('Mix Combo Over Rice Platter', 10.99)">Add to Cart</button>
   </div>
 </div>
 
 <div class="card">
-  <img src="image/chicken cheese burger.png" alt="Avatar">
+  <img src="image/chicken cheese burger.png" alt="Crispy Chicken Sandwich">
   <div class="container">
     <h4><b>Crispy Chicken Sandwhich</b></h4> 
     <p>$6.99</p> 
+    <button class="addbutton" onclick="addToCart('Crispy Chicken Sandwhich', 6.99)">Add to Cart</button>
   </div>
 </div>
 
 <div class="card">
-  <img src="image/Garden salad.png" alt="Avatar">
+  <img src="image/Garden salad.png" alt="Garden Salad">
   <div class="container">
     <h4><b>Garden Salad</b></h4> 
     <p>$7.99</p> 
+    <button class="addbutton" onclick="addToCart('Garden Salad', 7.99)">Add to Cart</button>
   </div>
 </div>
 
 <div class="card">
-  <img src="image/icecream.png" alt="Avatar">
+  <img src="image/icecream.png" alt="Shahi Kulfi Icecream" style="height: 210px;">
   <div class="container">
     <h4><b>Shahi Kulfi Icecream</b></h4> 
     <p>$2.50</p> 
+    <button class="addbutton" onclick="addToCart('Shahi Kulfi Icecream', 2.50)">Add to Cart</button>
   </div>
 </div>
 
 <div class="card">
-  <img src="image/chicken gyro.png" alt="Avatar">
+  <img src="image/chicken gyro.png" alt="Chicken Gyro">
   <div class="container">
     <h4><b>Chicken Gyro</b></h4> 
     <p>$7.99</p> 
+    <button class="addbutton" onclick="addToCart('Chicken Gyro', 7.99)">Add to Cart</button>
   </div>
 </div>
 
 <div class="card">
-  <img src="image/chicken sandwhich combo.jpeg" alt="Avatar">
+  <img src="image/chicken sandwhich combo.jpeg" alt="Chicken Sandwich & Fries Combo">
   <div class="container">
-    <h4><b>Chicken Sandwhich & Fries Combo</b></h4> 
+    <h4><b>Chicken Sandwhich & Fries</b></h4> 
     <p>$9.99</p> 
+    <button class="addbutton" onclick="addToCart('Chicken Sandwhich & Fries', 9.99)">Add to Cart</button>
   </div>
 </div>
 
 <div class="card">
-  <img src="image/red velvet.jpeg" alt="Avatar">
+  <img src="image/red velvet.jpeg" alt="Red Velvet Cake" style="height: 210px;">
   <div class="container">
     <h4><b>Red Velvet Cake</b></h4> 
     <p>$4.99</p> 
+    <button class="addbutton" onclick="addToCart('Red Velvet Cake', 4.99)">Add to Cart</button>
   </div>
 </div>
 
 <div class="card">
-  <img src="image/tenders.png" alt="Avatar">
+  <img src="image/tenders.png" alt="5 Pieces Tenders">
   <div class="container">
     <h4><b>5 Pieces Tenders</b></h4> 
     <p>$9.99</p> 
+    <button class="addbutton" onclick="addToCart('5 Pieces Tenders', 9.99)">Add to Cart</button>
   </div>
 </div>
 </div> 
@@ -122,6 +157,83 @@ const navLinks = document.querySelectorAll('nav a');
 navLinks.forEach(link =>
   link.addEventListener('click', () => document.querySelector('nav').classList.remove('open'))
 );
+
+let cart = [];
+function openCart(){ document.getElementById("cartPanel").classList.add("open"); }
+function closeCart(){ document.getElementById("cartPanel").classList.remove("open"); }
+
+function addToCart(name, price){
+  let item = cart.find(i => i.name === name);
+  if(item){ item.quantity++; } 
+  else { cart.push({name, price, quantity:1}); }
+  updateCart();
+}
+
+function removeFromCart(name){
+  cart = cart.filter(i => i.name !== name);
+  updateCart();
+}
+
+function clearCart(){ cart=[]; updateCart(); }
+
+function increaseQuantity(name){
+  let item = cart.find(i => i.name === name);
+  if(item){ item.quantity++; updateCart(); }
+}
+
+function decreaseQuantity(name){
+  let item = cart.find(i => i.name === name);
+  if(item){ 
+    if(item.quantity>1){ item.quantity--; } 
+    else { removeFromCart(name); }
+    updateCart();
+  }
+}
+
+function updateCart(){
+  const cartItems = document.getElementById("cartItems");
+  const totalDisplay = document.getElementById("total");
+  const countDisplay = document.querySelector(".cart-count");
+
+  cartItems.innerHTML="";
+  let total=0;
+  let totalItems=0;
+
+  if(cart.length===0){
+    cartItems.innerHTML="<p class='empty'>Your cart is empty</p>";
+    if(totalDisplay) totalDisplay.textContent="0.00";
+    countDisplay.classList.remove("visible");
+    countDisplay.textContent="0";
+    return;
+  }
+
+  cart.forEach(item => {
+  total += item.price * item.quantity;
+  totalItems += item.quantity;
+
+  const div = document.createElement("div");
+  div.classList.add("cart-item");
+  div.innerHTML = `
+    <div class="cart-item-info">
+      <p>${item.name}</p>
+    </div>
+    <div class="cart-item-right">
+      <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+      <div class="quantity-controls">
+        <button onclick="decreaseQuantity('${item.name}')">−</button>
+        <span>${item.quantity}</span>
+        <button onclick="increaseQuantity('${item.name}')">+</button>
+      </div>
+      <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
+    </div>
+  `;
+  cartItems.appendChild(div);
+});
+
+  countDisplay.textContent = totalItems;
+  countDisplay.classList.add("visible");
+  if(totalDisplay) totalDisplay.textContent = total.toFixed(2);
+}
 </script>
 </body>
 </html>
