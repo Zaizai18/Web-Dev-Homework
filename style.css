@@ -213,7 +213,7 @@ header {
 .cart-btn{
   position: absolute;
   top: 30px;  
-  right: 20px; 
+  right: 15px; 
   z-index: 1100; 
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.628);
@@ -232,8 +232,8 @@ header {
   border:1px solid #f07f13;
 }
 .cart-btn svg {
-    width: 18px;      
-    height: 18px;
+    width: 25px;      
+    height: 25px;
     fill: white;      
 }
 .cart-count{
@@ -565,8 +565,16 @@ input, textarea {
   .slide { 
     flex: 0 0 calc(100% / 2); 
   }
+  nav {
+        justify-content:center; 
+        padding-left: 20px;          
+    }
+
+    nav a {
+        margin-left: -10px;          
+    }
   .cart-btn {
-      right: -10px;
+      right: 5px;
       padding: 5px;
       top: 32px;
       border: none;
@@ -613,7 +621,7 @@ input, textarea {
 
   .cart-btn {
     position: absolute;
-    top: 40px;
+    top: 35px;
     right: 70px;
     font-size: 14px;
     padding: 6px 12px;
@@ -648,6 +656,7 @@ input, textarea {
     border: none;
     justify-content: center;
     position: relative; 
+    gap: 4px;
   }
 
   .cart-btn svg {
@@ -698,17 +707,17 @@ input, textarea {
   }
 
   .cart-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
   }
 
   .cart-count {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     font-size: 10px;
     line-height: 16px;
-    top: -4px;
-    right: -4px;
+    top: -6px;
+    right: 0px;
     position: absolute;
   }
 
