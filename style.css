@@ -681,6 +681,11 @@ input, textarea {
     height: 22px;
     font-size: 12px;
   }
+
+  .cart-btn svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 600px) {
