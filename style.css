@@ -671,7 +671,7 @@ input, textarea {
   }
 
   .cart-btn {
-    top: 38px;
+    top: 40px;
     right: 70px;
     padding: 6px 10px;
   }
@@ -715,8 +715,8 @@ input, textarea {
   }
 
   .cart-btn svg {
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
   }
 
   .cart-count {
