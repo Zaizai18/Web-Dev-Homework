@@ -176,17 +176,18 @@ header {
   padding: 15px;
   border-top: 1px solid #ccc;
   display: flex;
-  flex-direction: row; 
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; 
+  align-items: center;    
+  justify-content: center; 
   gap: 10px;
-  flex-wrap: wrap; 
+  width: 100%;
 }
 
 .cart-footer p {
   font-size: 16px;
   margin: 0;
   font-weight: bold;
+  width: 100%;
 }
 
 .cart-footer button {
@@ -197,12 +198,11 @@ header {
   color: white;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
   display: flex;
-  flex-direction: column;  
-  gap: 10px;
-  width: 100%;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  width: 100%; 
 }
 
 .cart-footer button:hover {
@@ -213,9 +213,13 @@ header {
 
 .close-btn {
   cursor: pointer;
-  font-size: 30px;
-  color: black;
-  font-weight: 400;
+  font-size: 30px; 
+  color: #000000 !important; 
+  font-weight: 300 !important;
+  display: inline-block;
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .cart-btn{
@@ -620,6 +624,14 @@ input, textarea {
   .contact-section {
     width: 100%;
   }
+
+  .cart-panel {
+    height: 100dvh;
+  }
+  
+  .cart-footer {
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
+  }
 }
 
 @media (max-width: 910px) {
@@ -692,6 +704,10 @@ input, textarea {
   .cart-btn svg {
     width: 20px;
     height: 20px;
+  }
+
+  .cart-footer button:hover {
+    transform: none;
   }
 }
 
