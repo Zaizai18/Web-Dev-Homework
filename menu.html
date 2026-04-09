@@ -140,6 +140,10 @@
   </div>
 </div>
 </div> 
+
+<div id="overlay" onclick="closeCart()"></div>
+
+<div id="cart-notification">Item added to cart!</div>
 </main>
 
 <footer>
@@ -151,96 +155,132 @@
 
 <script>
 function toggleNav() {
-  const nav = document.querySelector('nav');
-  nav.classList.toggle('open');
-}
+      const nav = document.querySelector('nav');
+      nav.classList.toggle('open');
+    }
 
-const navLinks = document.querySelectorAll('nav a');
-navLinks.forEach(link =>
-  link.addEventListener('click', () => document.querySelector('nav').classList.remove('open'))
-);
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link =>
+      link.addEventListener('click', () => document.querySelector('nav').classList.remove('open'))
+    );
 
 let cart = [];
-function openCart(){ document.getElementById("cartPanel").classList.add("open"); }
-function closeCart(){ document.getElementById("cartPanel").classList.remove("open"); }
 
-function addToCart(name, price){
-  let item = cart.find(i => i.name === name);
-  if(item){ item.quantity++; } 
-  else { cart.push({name, price, quantity:1}); }
-  updateCart();
+function openCart() {
+  document.getElementById("cartPanel").classList.add("open");
+  document.getElementById("overlay").classList.add("show");
 }
 
-function removeFromCart(name){
+function closeCart() {
+  document.getElementById("cartPanel").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
+}
+
+function addToCart(name, price) {
+  let item = cart.find(i => i.name === name);
+
+  if (item) {
+    item.quantity++;
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+
+  updateCart();
+  showToast(`${name} added to cart`);
+}
+
+function removeFromCart(name) {
   cart = cart.filter(i => i.name !== name);
   updateCart();
 }
 
-function clearCart(){ cart=[]; updateCart(); }
-
-function increaseQuantity(name){
+function changeQuantity(name, amount) {
   let item = cart.find(i => i.name === name);
-  if(item){ item.quantity++; updateCart(); }
-}
 
-function decreaseQuantity(name){
-  let item = cart.find(i => i.name === name);
-  if(item){ 
-    if(item.quantity>1){ item.quantity--; } 
-    else { removeFromCart(name); }
+  if (!item) return;
+
+  item.quantity += amount;
+
+  if (item.quantity <= 0) {
+    removeFromCart(name);
+  } else {
     updateCart();
   }
 }
 
-function updateCart(){
+function clearCart() {
+  cart = [];
+  updateCart();
+}
+
+function updateCart() {
   const cartItems = document.getElementById("cartItems");
   const totalDisplay = document.getElementById("total");
   const countDisplay = document.querySelector(".cart-count");
 
-  cartItems.innerHTML="";
-  let total=0;
-  let totalItems=0;
+  let total = 0;
+  let totalItems = 0;
 
-  if(cart.length===0){
-    cartItems.innerHTML="<p class='empty'>Your cart is empty</p>";
-    if(totalDisplay) totalDisplay.textContent="0.00";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p class='empty'>Your cart is empty</p>";
+    totalDisplay.textContent = "0.00";
+    countDisplay.textContent = "0";
     countDisplay.classList.remove("visible");
-    countDisplay.textContent="0";
     return;
   }
 
+
+  cartItems.innerHTML = "";
+
   cart.forEach(item => {
-  total += item.price * item.quantity;
-  totalItems += item.quantity;
+    total += item.price * item.quantity;
+    totalItems += item.quantity;
 
-  const div = document.createElement("div");
-  div.className = "cart-item";
+    const div = document.createElement("div");
+    div.className = "cart-item";
 
-  div.innerHTML = `
-    <div>
-      <p>${item.name}</p>
+    div.innerHTML = `
+      <div>
+        <p>${item.name}</p>
       </div>
 
-    <div class="cart-item-right">
-      <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+      <div class="cart-item-right">
+        <div class="cart-item-price">
+          $${(item.price * item.quantity).toFixed(2)}
+        </div>
 
-      <div class="quantity-controls">
-        <button onclick="decreaseQuantity('${item.name}')">−</button>
-        <span>${item.quantity}</span>
-        <button onclick="increaseQuantity('${item.name}')">+</button>
+        <div class="quantity-controls">
+          <button onclick="changeQuantity('${item.name}', -1)">−</button>
+          <span>${item.quantity}</span>
+          <button onclick="changeQuantity('${item.name}', 1)">+</button>
+        </div>
+
+        <button class="remove-btn" onclick="removeFromCart('${item.name}')">
+          Remove
+        </button>
       </div>
+    `;
 
-      <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
-    </div>
-  `;
-  
-  cartItems.appendChild(div);
-});
+    cartItems.appendChild(div);
+  });
 
+  totalDisplay.textContent = total.toFixed(2);
   countDisplay.textContent = totalItems;
   countDisplay.classList.add("visible");
-  if(totalDisplay) totalDisplay.textContent = total.toFixed(2);
 }
+
+function showToast(message) {
+  const toast = document.getElementById("cart-notification");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
+
 </script>
+
 </body>
 </html>
