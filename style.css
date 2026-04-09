@@ -202,6 +202,7 @@ header {
   flex-direction: column;  
   gap: 10px;
   width: 100%;
+  align-items: center;
 }
 
 .cart-footer button:hover {
@@ -213,8 +214,10 @@ header {
 .close-btn {
   cursor: pointer;
   font-size: 30px;
-
+  color: black;
+  font-weight: 400;
 }
+
 .cart-btn{
   position: absolute;
   top: 30px;  
@@ -633,6 +636,10 @@ input, textarea {
     padding: 5px;
     font-size: 14px;
     top: 32px;
+    border: none;
+  }
+
+  .cart-btn:hover{
     border: none;
   }
 }
