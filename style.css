@@ -13,7 +13,7 @@ html,body {
   body {
     display: flex;
     flex-direction: column;
-     min-height: 100vh;
+    min-height: 100vh;
   }
 
 header {
@@ -197,6 +197,7 @@ header {
   background-color: black;
   color: white;
   border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -213,13 +214,10 @@ header {
 
 .close-btn {
   cursor: pointer;
-  font-size: 30px; 
-  color: #000000 !important; 
-  font-weight: 300 !important;
+  font-size: 2rem; 
+  color: black; 
+  font-weight:bolder;
   display: inline-block;
-  line-height: 1;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .cart-btn{
