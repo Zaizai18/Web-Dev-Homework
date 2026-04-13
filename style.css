@@ -25,14 +25,15 @@ header {
     left: 0;
     width: 100%;
     background-color: black;
-    padding: 10px;
+    padding: 5px 10px;
     z-index: 1000;
     flex-wrap: nowrap;
 }
 
 .brand {
     display: flex;
-    align-items: center;                        
+    align-items: center;  
+     margin-bottom: 10px;                      
 }
 
 .munchies {
