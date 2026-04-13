@@ -728,7 +728,7 @@ input, textarea {
   }
 
   .cart-btn svg {
-    width: 20px;
+    width: 24px;
   }
 
   .cart-count {
@@ -749,7 +749,7 @@ input, textarea {
     display: flex;    
     width: 44px; 
     height: 44px;
-    font-size: 24px;  
+    font-size: 30px;  
     align-items: center;
     justify-content: center;
     margin-left: 10px;
