@@ -27,7 +27,7 @@ header {
     background-color: black;
     padding: 10px;
     z-index: 1000;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .brand {
@@ -214,16 +214,16 @@ header {
 
 .close-btn {
   cursor: pointer;
-  font-size: 2rem; 
+  font-size: 30px; 
   color: black; 
   font-weight:bolder;
   display: inline-block;
 }
 
 .cart-btn{
-  position: absolute;
-  top: 30px;  
-  right: 15px; 
+  position: relative;
+  top: unset;  
+  right: unset; 
   z-index: 1100; 
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.628);
@@ -307,7 +307,7 @@ header {
 }
 
 .nav-toggle {
-  font-size: 28px;
+  font-size: 24px;
   color: white;
   background: transparent;
   border: none;
@@ -315,12 +315,12 @@ header {
   -webkit-appearance: none;
   appearance: none;
   display: none; 
-  margin-top: 10px;
-  padding: 2px;
+  margin-left: 15px;
+  padding: 0px;
   line-height: 1;
   z-index: 20;
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -622,17 +622,9 @@ input, textarea {
   .contact-section {
     width: 100%;
   }
-
-  .cart-panel {
-    height: 100dvh;
-  }
-  
-  .cart-footer {
-    padding-bottom: calc(15px + env(safe-area-inset-bottom));
-  }
 }
 
-@media (max-width: 910px) {
+@media (max-width: 900px) {
   .slide { 
     flex: 0 0 50%; 
   }
@@ -642,10 +634,7 @@ input, textarea {
   }
 
   .cart-btn {
-    right: 5px;
     padding: 5px;
-    font-size: 14px;
-    top: 32px;
     border: none;
   }
 
@@ -654,7 +643,7 @@ input, textarea {
   }
 }
 
-@media (max-width:830px){
+@media (max-width:768px){
   .contact-wrapper {
     flex-direction: column;
   }
@@ -668,13 +657,23 @@ input, textarea {
   }
 
   .nav-toggle {
-    display: block;
+    display: flex;         
+    align-items: center;
+    justify-content: center;
+    height: 42px;          
+    width: 42px;           
+    background: none;
+    border-radius: 6px;
+    font-size: 24px;       
+    margin-left: 10px;     
+    cursor: pointer;
+    order: 3;              
   }
 
   nav {
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     background: black;
@@ -688,24 +687,19 @@ input, textarea {
   }
 
   .cart-btn {
-    top: 2.35rem;
-    right: 70px;
-    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    height: 42px;          
+    padding: 0 15px;       
+    margin-left: auto;
+    margin-top: -5px;
+    order: 2;
   }
 
   .cart-count {
-    width: 22px;
-    height: 22px;
-    font-size: 12px;
-  }
-
-  .cart-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .cart-footer button:hover {
-    transform: none;
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
   }
 }
 
@@ -725,19 +719,16 @@ input, textarea {
   }
 
   .cart-btn {
-    width: 45px;
-    height: 45px;
-    padding: 6px;
-    top: 32px;
-    right: 50px;
-    font-size: 0;
-    border: none;
+    width: 44px;          
+    padding: 0;            
     justify-content: center;
+    font-size: 0;   
+    margin-bottom: -10px;
+    margin-right: -20px;   
   }
 
   .cart-btn svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
   }
 
   .cart-count {
@@ -745,7 +736,7 @@ input, textarea {
     height: 18px;
     font-size: 12px;
     top: -5px;
-    right: -5px;
+    right: 0px;
     position: absolute;
   }
 
@@ -755,11 +746,16 @@ input, textarea {
   }
 
   .nav-toggle {
-    order: 2;
-  }
-
-  .cart-btn {
-    order: 1;
+    display: flex;    
+    width: 44px; 
+    height: 44px;
+    font-size: 24px;  
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    padding: 0;
+    line-height: 1;
+    margin-top: 10px;
   }
 
   #cart-notification {
@@ -788,24 +784,10 @@ input, textarea {
     margin-top: 70px;
   }
 
-  .cart-btn {
-    width: 36px;
-    height: 36px;
-    padding: 3px;
-    top: 21px;
-    right: 40px;
-  }
-
   .cart-count {
     width: 16px;
     height: 16px;
     font-size: 10px;
-  }
-
-  .nav-toggle {
-    font-size: 25px;
-    width: 30px;
-    height: 30px;
   }
 
   .hero-text {
