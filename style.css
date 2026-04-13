@@ -723,12 +723,12 @@ input, textarea {
     padding: 0;            
     justify-content: center;
     font-size: 0;   
-    margin-bottom: -11px;
+    margin-bottom: -10px;
     margin-right: -20px;   
   }
 
   .cart-btn svg {
-    width: 24px;
+    width: 23px;
   }
 
   .cart-count {
